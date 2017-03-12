@@ -91,11 +91,89 @@ El sistema mantendrá la consistencia de dichos servicios, de forma que en todo 
 Dispondrá de un sistema de control ante errores para no lastrar la experiencia del usuario, además, el historial de operaciones del sistema nos permitirá mejorar la calidad de los servicios que en él se ofrecen usando un modelo que cambiará dinámicamente.
 
 
+
+
+El compartir vehículo puede ser para realizar un viaje con el dueño de
+dicho vehículo o sin él; en este último caso se funcionaría como un alquiler del
+vehículo.
+
 \section{Estructura de requisitos}
-da
+\subsection{Requisitos de información}
+\begin{itemize}
+	\item \textbf{RI-1} Usuarios
+	
+	Información sobre los usuarios del sistema.
+	
+	Identificador de usuario, DNI, teléfono, e-mail (opcional), rango, mensajes, cuenta bancaria (opcional), foto (opcional), fecha de alta como socio, saldo actual, alquileres vigentes, opiniones dejadas y recibidas.
+	
+	\item \textbf{RI-2} Vehículos
+	
+	Vehículos que han pasado alguna vez por nuestro sistema.
+	
+	Identificador del vehículo, matrícula, modelo, color, número de asientos (contando el conductor), concesionario, identificador del dueño
+	
+	\item \textbf{RI-3} Viviendas
+	
+	Viviendas que han pasado alguna vez por nuestro sistema.
+	
+	Identificador de la vivienda, identificador del dueño, ubicación, metros cuadrados, número de habitaciones, número de baños, datos adicionales (fotos, información sobre calefacción, garaje, ascensor, etc)
+	
+	\item \textbf{RI-4} Historial
+	
+	Historial de alquileres de cada usuario del sistema.
+	
+	Identificador de usuario, lista de alquileres (identificadores)
+	% Pagos que tiene pendientes	
+		
+	\item \textbf{RI-5} Vehículos para alquilar
+	
+	Descripción de los vehículos disponibles para que otros usuarios los alquilen.
+	
+	Identificador del alquiler, identificador del vehículo, tipo de alquiler (total o parcial), datos adicionales.
+	\begin{itemize}
+		\item \textbf{RI-5.1} Alquiler total
+		
+		Alquiler del vehículo completo por un periodo de tiempo.
+		
+		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado, posibilidad de alquileres intermedios.
+		
+		\item \textbf{RI-5.2} Alquiler plazas para viaje
+		
+		En este caso se alquilarían plazas sueltas para un viaje concreto.
+		
+		Fecha de inicio del viaje, fecha estimada de llegada (derivado del resto), lugar inicial y final del viaje, posibles paradas intermedias (para recoger otros pasajeros), número de plazas ofertadas, precio por plaza, tamaño máximo del equipaje (pequeño, mediano o grande) y usuarios que ya han reservado alguna plaza.
+	\end{itemize}
+
+	\item \textbf{RI-6} Viviendas para alquilar
+	
+	Viviendas actualmente disponibles para alquiler total o parcial.
+	
+	Identificador de alquiler, identificador de la vivienda, tipo de alquiler (total o por habitaciones). 
+		
+	\begin{itemize}
+		\item \textbf{RI-6.1} Alquiler total
+		
+		Alquiler de la vivienda completa por un periodo de tiempo
+		
+		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado, posibilidad de alquileres intermedios.
+		
+		\item \textbf{RI-6.2} Alquiler por habitaciones
+		
+		Alquiler de habitaciones sueltas.
+		
+		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado, posibilidad de alquileres intermedios, número de habitaciones para alquilar.
+	\end{itemize}
+
+% Politica de privacidad, normas, proveedores de seguros	
+\end{itemize}
+
+\subsection{Requisitos funcionales}
+
+\subsection{Requisitos no funcionales}
+
 
 \section{Glosario de términos}
-da
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
