@@ -104,19 +104,19 @@ vehículo.
 	
 	Información sobre los usuarios del sistema.
 	
-	Identificador de usuario, DNI, teléfono, e-mail (opcional), rango, mensajes, cuenta bancaria (opcional), foto (opcional), fecha de alta como socio, saldo actual, alquileres vigentes, opiniones dejadas y recibidas.
+	Identificador de usuario, DNI, calificación, descripción (opcional), teléfono, e-mail (opcional), rango, mensajes, cuenta bancaria (opcional), foto (opcional), fecha de alta como socio, saldo actual, alquileres vigentes, opiniones dejadas y recibidas.
 	
 	\item \textbf{RI-2} Vehículos
 	
 	Vehículos que han pasado alguna vez por nuestro sistema.
 	
-	Identificador del vehículo, matrícula, modelo, color, número de asientos (contando el conductor), concesionario, identificador del dueño
+	Identificador del vehículo, matrícula, calificación, modelo, color, número de asientos (contando el conductor), concesionario, identificador del dueño
 	
 	\item \textbf{RI-3} Viviendas
 	
 	Viviendas que han pasado alguna vez por nuestro sistema.
 	
-	Identificador de la vivienda, identificador del dueño, ubicación, metros cuadrados, número de habitaciones, número de baños, datos adicionales (fotos, información sobre calefacción, garaje, ascensor, etc)
+	Identificador de la vivienda, identificador del dueño, calificación, ubicación, metros cuadrados, número de habitaciones, número de baños, datos adicionales (fotos, información sobre calefacción, garaje, ascensor, etc)
 	
 	\item \textbf{RI-4} Historial
 	
@@ -168,12 +168,100 @@ vehículo.
 \end{itemize}
 
 \subsection{Requisitos funcionales}
+\begin{itemize}
+	\item Gestión de usuarios
+	
+	\begin{itemize}
+		\item Alta de usuario
+		\item Consulta de usuario
+		\begin{itemize}
+			\item Datos personales
+			\item Opiniones recibidas
+			\item Alquileres efectuados
+		\end{itemize}
+		\item Modificar socio
+		\begin{itemize}
+			\item Modificar datos personales
+			\item Modificar rango
+			\item Añadir opinión
+			\item Añadir alquiler efectuado
+		\end{itemize}
+		\item Gestión de pagos
+		\begin{itemize}
+			\item Consultar saldo
+			\item Modificar saldo
+			\item Pago a cuenta
+		\end{itemize}
+		\item Denunciar usuario
+		\item Eliminar usuario
+	\end{itemize}
+	
+	\item Gestión de vehículos
+	\begin{itemize}
+		\item Añadir vehículo
+		\item Consultar vehículo
+		\item Modificar vehículo
+		\item Eliminar vehículo
+	\end{itemize}
+	\item Gestión de viviendas
+	\begin{itemize}
+		\item Añadir vivienda
+		\item Consultar vivienda
+		\item Modificar vivienda
+		\item Eliminar vivienda
+	\end{itemize}
+	
+	\item Gestión de alquileres
+	\begin{itemize}
+		\item Añadir alquiler
+		\item Consulta alquiler
+		\item Modificar alquiler
+		\begin{itemize}
+			\item Modificar información alquiler
+			\item Solicitar aceptación de alquiler (total o parcial)
+		\end{itemize}
+		\item Gestión de mensajes
+		\begin{itemize}
+			\item Enviar mensaje
+			\item Validar mensaje
+		\end{itemize}
+		\item Dejar una opinión
+		\item Gestión de incidencias
+		\begin{itemize}
+			\item Notificar una incidencia 
+			\item Consultar incidencias
+			\item Consultar seguro
+			\item Consultar servicios legales		
+		\end{itemize}
+		\item Archivar alquiler
+		\item Eliminar alquiler
+	\end{itemize}
+	
+	\item Consultar información legal
+	\item Consultar normativa interna
+	\item Contacto
+	
+	
+\end{itemize}
 
 \subsection{Requisitos no funcionales}
-
+\begin{itemize}
+	\item Mantener coherencia de los datos
+	\item Controlar privilegios de usuarios y administradores
+	
+\end{itemize}
 
 \section{Glosario de términos}
-
+\begin{itemize}
+	\item Alquiler intermedio
+	\item Calificación
+	\item Economía colaborativa
+	\item Historial
+	\item Incidencia (retraso, información falsa, comportamiento inadecuado, etc.)
+	\item Rango
+	\item Ubicación
+	\item Validar	
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
