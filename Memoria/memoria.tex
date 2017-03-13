@@ -84,16 +84,16 @@
 
 
 \section{Introducción}
-Se debe desarrollar un software que permita alquilar (total o parcialmente) y compartir coches y/o viviendas. 
+\hspace{0.5cm}Se debe desarrollar un software que permita alquilar (total o parcialmente) y compartir coches y/o viviendas. 
 La idea principal es crear un sistema de economía colaborativa en el que los usuarios sean a la vez quienes prestan y quienes reciben un servicio. 
 Una vez registrado un usuario podrá publicar y consultar anuncios, e interactuar con otros usuarios.
 
-Los usuarios podrán dejar opiniones sobre los servicios recibidos y se establecerá un estándar de calidad que permitirá, antes de solicitar un servicio, tener una idea de la relación calidad/precio del mismo.
+\hspace{0.5cm}Los usuarios podrán dejar opiniones sobre los servicios recibidos y se establecerá un estándar de calidad que permitirá, antes de solicitar un servicio, tener una idea de la relación calidad/precio del mismo.
 
-El sistema mantendrá la consistencia de dichos servicios, de forma que en todo momento sepamos las operaciones que se están llevando a cabo.
+\hspace{0.5cm}El sistema mantendrá la consistencia de dichos servicios, de forma que en todo momento sepamos las operaciones que se están llevando a cabo.
 Dispondrá de un sistema de control ante errores para no lastrar la experiencia del usuario, además, el historial de operaciones del sistema nos permitirá mejorar la calidad de los servicios que en él se ofrecen usando un modelo que cambiará dinámicamente.
 
-En lo referente al dominio del problema hay características comunes a ambos tipos de alquileres, como las modalidades de pago, las opiniones, el precio, disponibilidad de plazas o habitaciones.
+\hspace{0.5cm}En lo referente al dominio del problema hay características comunes a ambos tipos de alquileres, como las modalidades de pago, las opiniones, el precio, disponibilidad de plazas o habitaciones.
 En el caso de alquiler de vehículos incluiría los puntos de recogida y destino, las fechas, número de plazas, si el usuario es el conductor o no.
 Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tipo de alquiler, tipo de vivienda, datos adicionales como el Wi-Fi, luz o agua (en caso de estar o no incluidas en el precio), etc.
 
@@ -105,19 +105,21 @@ Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tip
 	
 	Información sobre los usuarios del sistema.
 	
-	Identificador de usuario, DNI, calificación, descripción (opcional), teléfono, e-mail (opcional), rango, mensajes, cuenta bancaria (opcional), foto (opcional), fecha de alta como socio, saldo actual, alquileres vigentes, opiniones dejadas y recibidas.
+	Identificador de usuario, DNI, calificación (derivada de otros usuarios), descripción (opcional), teléfono, e-mail (opcional), status, mensajes, cuenta bancaria (opcional), foto (opcional), fecha de alta como socio, saldo virtual actual, alquileres vigentes y pasados, opiniones dejadas y recibidas.
 	
 	\item \textbf{RI-2} Vehículos
 	
 	Vehículos que han pasado alguna vez por nuestro sistema.
 	
-	Identificador del vehículo, matrícula, calificación, modelo, color, número de asientos (contando el conductor), concesionario, identificador del dueño
+	Identificador del vehículo, matrícula, calificación, modelo, color, número de asientos (contando el conductor).
+	También se incluye si se permiten mascotas, fumar, etc.
 	
 	\item \textbf{RI-3} Viviendas
 	
 	Viviendas que han pasado alguna vez por nuestro sistema.
 	
-	Identificador de la vivienda, identificador del dueño, calificación, ubicación, metros cuadrados, número de habitaciones, número de baños, datos adicionales (fotos, información sobre calefacción, garaje, ascensor, etc)
+	Identificador de la vivienda, identificador del dueño, calificación (derivada de otros usuarios), ubicación, inclusión de mobiliario, metros cuadrados, número de habitaciones, número de baños, tasas incluidas, datos adicionales (fotos, información sobre calefacción, garaje, ascensor, piscina, terraza, etc.).
+	También se incluye si hay fianza.
 	
 	\item \textbf{RI-4} Historial
 	
@@ -130,19 +132,19 @@ Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tip
 	
 	Descripción de los vehículos disponibles para que otros usuarios los alquilen.
 	
-	Identificador del alquiler, identificador del vehículo, tipo de alquiler (total o parcial), datos adicionales.
+	Identificador del alquiler, identificador del dueño, identificador del vehículo, tipo de alquiler (total o parcial), datos adicionales.
 	\begin{itemize}
 		\item \textbf{RI-5.1} Alquiler total
 		
 		Alquiler del vehículo completo por un periodo de tiempo.
 		
-		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado, posibilidad de alquileres intermedios.
+		Fianza, fechas de inicio y fin del alquiler, precio, lugar de recogida y devolución del vehículo, posibilidad de alquileres intermedios.
 		
 		\item \textbf{RI-5.2} Alquiler plazas para viaje
 		
 		En este caso se alquilarían plazas sueltas para un viaje concreto.
 		
-		Fecha de inicio del viaje, fecha estimada de llegada (derivado del resto), lugar inicial y final del viaje, posibles paradas intermedias (para recoger otros pasajeros), número de plazas ofertadas, precio por plaza, tamaño máximo del equipaje (pequeño, mediano o grande) y usuarios que ya han reservado alguna plaza.
+		Fecha de inicio del viaje, fecha estimada de llegada (derivado del resto), lugar inicial y final del viaje, posibles paradas intermedias (para recoger otros pasajeros), número de plazas ofertadas y disponibles, precio por plaza, tamaño máximo del equipaje (pequeño, mediano o grande) y usuarios que ya han reservado alguna plaza en subtrayectos.
 	\end{itemize}
 
 	\item \textbf{RI-6} Viviendas para alquilar
@@ -165,7 +167,8 @@ Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tip
 		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado, posibilidad de alquileres intermedios, número de habitaciones para alquilar.
 	\end{itemize}
 
-% Politica de privacidad, normas, proveedores de seguros	
+	\item Normas
+	\item Proveedores de seguros	
 \end{itemize}
 
 \subsection{Requisitos funcionales}
@@ -264,6 +267,7 @@ Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tip
 	\item Economía colaborativa
 	\item Historial
 	\item Incidencia (retraso, información falsa, comportamiento inadecuado, etc.)
+	\item Subtrayecto: Trayecto parcial del viaje, que empieza y/o acaba en paradas intermedias.
 	\item Status: Nivel de experiencia de un usuario
 	\item Ubicación: Coordenadas del sitio al que estamos referenciando.
 	\item Validar	
