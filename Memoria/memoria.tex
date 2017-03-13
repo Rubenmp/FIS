@@ -90,12 +90,10 @@ La idea principal es crear un sistema de economía colaborativa en el que los us
 El sistema mantendrá la consistencia de dichos servicios, de forma que en todo momento sepamos las operaciones que se están llevando a cabo.
 Dispondrá de un sistema de control ante errores para no lastrar la experiencia del usuario, además, el historial de operaciones del sistema nos permitirá mejorar la calidad de los servicios que en él se ofrecen usando un modelo que cambiará dinámicamente.
 
+Hay características comunes a ambos tipos de alquileres, como las modalidades de pago.
+El dominio del problema en el caso de alquiler de vehículos incluiría los puntos de recogida y destino, las fechas, número de plazas, si el usuario es el conductor o no.
+Para la vivienda el dominio incluiría los periodos de alquiler, épocas del año, dirección, tipo de alquiler, tipo de vivienda, datos adicionales como el wi-fi, luz o agua incluidas, etc.
 
-
-
-El compartir vehículo puede ser para realizar un viaje con el dueño de
-dicho vehículo o sin él; en este último caso se funcionaría como un alquiler del
-vehículo.
 
 \section{Estructura de requisitos}
 \subsection{Requisitos de información}
@@ -182,7 +180,11 @@ vehículo.
 		\item Modificar socio
 		\begin{itemize}
 			\item Modificar datos personales
-			\item Modificar rango
+			\begin{itemize}
+				\item Verificar e-mail
+				\item Verificar teléfono
+			\end{itemize}
+			\item Modificar status
 			\item Añadir opinión
 			\item Añadir alquiler efectuado
 		\end{itemize}
@@ -253,13 +255,13 @@ vehículo.
 
 \section{Glosario de términos}
 \begin{itemize}
-	\item Alquiler intermedio
-	\item Calificación
+	\item Alquiler intermedio: Alquiler que pueda empezar y/o terminar en otro momento distinto del especificado en el rango inicial
+	\item Calificación: Puntuación numérica entre $0$ y $5$
 	\item Economía colaborativa
 	\item Historial
 	\item Incidencia (retraso, información falsa, comportamiento inadecuado, etc.)
-	\item Rango
-	\item Ubicación
+	\item Status: Nivel de experiencia de un usuario
+	\item Ubicación: Coordenadas del sitio al que estamos referenciando.
 	\item Validar	
 \end{itemize}
 
