@@ -97,6 +97,29 @@ Dispondrá de un sistema de control ante errores para no lastrar la experiencia 
 En el caso de alquiler de vehículos incluiría los puntos de recogida y destino, las fechas, número de plazas, si el usuario es el conductor o no.
 Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tipo de alquiler, tipo de vivienda, datos adicionales como el Wi-Fi, luz o agua (en caso de estar o no incluidas en el precio), etc.
 
+\section{Implicados}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+	\centering
+	\label{my-label}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{llll}
+			Nombre & Descripción & Responsabilidad & Criterios de éxito \\
+			Administrador & Entidad que administra el software & Gestiona el buen uso de la aplicación y resuelve conflictos & Resolver efectivamente los conflictos y garantiza el buen funcionamiento del software. \\
+			Arrendador & Entidad que posee la vivienda o vehículo a arrendar. & Publicar el anuncio de alquiler y la información de contacto. Cumplir los términos del contrato. & Ofrecer información veraz y completa, conseguir alquilar la vivienda o vehículo. \\
+			Arrendatario & Entidad que paga al arrendador por el uso su vivienda o vehículo. & Hacer un uso responsable de la vivienda o vehículo. Cumplir con los términos del contrato. & Conseguir una vivienda o vehículo de alquiler y no dar problemas al arrendador. \\
+			Conductor & Entidad que conduce el coche durante el trayecto contratado. & Cumplir con la normativa de tráfico, cumplir el horario previsto. & Conseguir pasajeros para su trayecto. \\
+			Pasajero & Entidad que comparte el trayecto con el conductor. & Llegar a tiempo a la cita, respetar el vehículo y confirmar que ha realizado dicho trayecto. & Conseguir el trayecto deseado a buen precio. \\
+			Vehículo & Vehículo ofertado para su uso en un periodo de tiempo o en un trayecto & No tiene responsabilidad. & No averiarse. \\
+			Vivienda & Vivienda ofertada para su uso en un periodo de tiempo o para alquilar habitaciones. & No tiene responsabilidad. & Ser habitable.
+		\end{tabular}%
+	}
+\end{table}
+
+
+
 
 \section{Estructura de requisitos}
 \subsection{Requisitos de información}
@@ -167,89 +190,94 @@ Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tip
 		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado, posibilidad de alquileres intermedios, número de habitaciones para alquilar.
 	\end{itemize}
 
-	\item Normas
-	\item Proveedores de seguros
-	\item Contacto con la empresa	
+	\item \textbf{RI-7} Normas
+	\item \textbf{RI-8} Proveedores de seguros
+	\item \textbf{RI-9} Contacto con la empresa	
 \end{itemize}
 
 \subsection{Requisitos funcionales}
 \begin{itemize}
-	\item Gestión de usuarios
-	
+	\item \textbf{RF-1} Gestión de usuarios
 	\begin{itemize}
-		\item Alta de usuario
-		\item Consulta de usuario
+		\item \textbf{RF-1.1} Alta de usuario
+		\item \textbf{RF-1.2} Consulta de usuario
 		\begin{itemize}
-			\item Datos personales
-			\item Opiniones recibidas
-			\item Alquileres efectuados
+			\item \textbf{RF-1.2.1} Datos personales
+			\item \textbf{RF-1.2.2} Opiniones recibidas
+			\item \textbf{RF-1.2.3} Alquileres efectuados
 		\end{itemize}
-		\item Modificar usuario
+		\item \textbf{RF-1.3} Modificar usuario
 		\begin{itemize}
-			\item Modificar datos personales
+			\item \textbf{RF-1.3.1} Modificar datos personales
 			\begin{itemize}
-				\item Verificar e-mail
-				\item Verificar teléfono
+				\item \textbf{RF-1.3.1.1} Verificar e-mail
+				\item \textbf{RF-1.3.1.2} Verificar teléfono
 			\end{itemize}
-			\item Modificar status
-			\item Añadir vehículo
-			\item Añadir vivienda
-			\item Añadir alquiler efectuado
+			\item \textbf{RF-1.3.2} Añadir vehículo
+			\item \textbf{RF-1.3.3} Añadir vivienda
+			\item \textbf{RF-1.3.4} Modificar status
+			\item \textbf{RF-1.3.5} Añadir alquiler efectuado
 		\end{itemize}
-		\item Gestión de pagos
+		\item \textbf{RF-1.4} Gestión de pagos
 		\begin{itemize}
-			\item Consultar saldo
-			\item Modificar saldo
-			\item Pago a cuenta
+			\item \textbf{RF-1.4.1} Consultar saldo
+			\item \textbf{RF-1.4.2} Modificar saldo
+			\item \textbf{RF-1.4.3} Pago a cuenta
 		\end{itemize}
-		\item Denunciar usuario
-		\item Eliminar usuario
+		\item \textbf{RF-1.5} Denunciar usuario
+		\item \textbf{RF-1.6} Eliminar usuario
 	\end{itemize}
 	
-	\item Gestión de alquileres
+	\item \textbf{RF-2} Gestión de alquileres
 	\begin{itemize}
-		\item Añadir alquiler
-		\item Consultar alquiler
-		\item Modificar alquiler
+		\item \textbf{RF-2.1} Añadir alquiler
 		\begin{itemize}
-			\item Modificar información alquiler
-			\item Solicitar aceptación de alquiler (total o parcial)
-			\item Confirmar realización de alquiler
+			\item \textbf{RF-2.1.1} Elegir vivienda
+			\begin{itemize}
+				\item \textbf{RF-2.1.1.1} Elegir habitación
+			\end{itemize}
+			\item \textbf{RF-2.1.2} Elegir vehículo
 		\end{itemize}
-		\item Gestión de mensajes
+		\item \textbf{RF-2.2} Consultar alquiler
+		\item \textbf{RF-2.3} Modificar alquiler
 		\begin{itemize}
-			\item Enviar mensaje
-			\item Validar mensaje
+			\item \textbf{RF-2.3.1} Modificar información alquiler
+			\item \textbf{RF-2.3.2} Solicitar aceptación de alquiler (total o parcial)
+			\item \textbf{RF-2.3.3} Confirmar realización de alquiler
 		\end{itemize}
-		\item Dejar una calificación
-		\item Gestión de incidencias
+		\item \textbf{RF-2.4} Gestión de mensajes
 		\begin{itemize}
-			\item Notificar una incidencia 
-			\item Consultar incidencias
+			\item \textbf{RF-2.4.1} Enviar mensaje
+			\item \textbf{RF-2.4.2} Validar mensaje
 		\end{itemize}
-		\item Retirar alquiler de lista de ofertados
+		\item \textbf{RF-2.5} Dejar una calificación
+		\item \textbf{RF-2.6} Gestión de incidencias
+		\begin{itemize}
+			\item \textbf{RF-2.6.1} Notificar una incidencia 
+			\item \textbf{RF-2.6.2} Consultar incidencias
+		\end{itemize}
+		\item \textbf{RF-2.7} Retirar alquiler de lista de ofertados
 	\end{itemize}	
 
-	\item Gestión de administradores
+	\item \textbf{RF-3} Gestión de administradores
 	\begin{itemize}
-		\item Consulta de incidencias
-		\item Resolución de incidencias
-		\item Gestión de privilegios
+		\item \textbf{RF-3.1} Consulta de incidencias
+		\item \textbf{RF-3.2} Resolución de incidencias
+		\item \textbf{RF-3.3} Gestión de privilegios
 	\end{itemize}
 \end{itemize}
 
 \subsection{Requisitos no funcionales}
 \begin{itemize}
-	\item Mantener coherencia de los datos
-	\item Controlar privilegios de usuarios y administradores
-	\item Privacidad de los datos personales de los usuarios
-	\item Interfaz intuitiva para alquilar	
+	\item \textbf{RNF-1} Mantener coherencia de los datos
+	\item \textbf{RNF-2} Privacidad de los datos personales de los usuarios
+	\item \textbf{RNF-3} Interfaz intuitiva para alquilar	
 \end{itemize}
 
 \section{Glosario de términos}
 \begin{itemize}
 	\item Alquiler intermedio: Alquiler que pueda empezar y/o terminar en otro momento distinto del especificado en el rango inicial
-	\item Calificación: Puntuación numérica entre $0$ y $5$
+	\item Calificación: Puntuación numérica entre $0$ y $5$ (incluidos), donde $0$ es la menor nota y $5$ la mayor.
 	\item Economía colaborativa
 	\item Historial: Lista de alquileres relativos a un usuario concreto (siendo dicho usuario el proveedor o el consumidor, indistintamente)
 	\item Incidencia (retraso, información falsa, comportamiento inadecuado, etc.)
