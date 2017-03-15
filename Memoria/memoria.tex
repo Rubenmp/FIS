@@ -10,10 +10,10 @@
 \usepackage{cancel} % Cancelar expresiones
 \usepackage{multirow, multicol, tabularx, booktabs, longtable} % Tablas
 \usepackage{fancyhdr, fncychap} % Encabezados
-\usepackage{algpseudocode, algorithmicx, algorithm} % Pseudo-código	
+\usepackage{algpseudocode, algorithmicx, algorithm} % Pseudo-código
 \usepackage{bbding} % Símbolos
 \usepackage{enumitem} % Enumerados a), b), c)... usando \begin{enumerate}[label=\alph*)]
-\usepackage{graphicx, xcolor, color, pstricks} % Gráficos --TikZ-- 
+\usepackage{graphicx, xcolor, color, pstricks} % Gráficos --TikZ--
 % http://www.texample.net/tikz/examples/
 \usepackage[hidelinks]{hyperref}  % Enlaces
 \usepackage{verbatim} % Comentarios largos \begin{comment}
@@ -28,21 +28,21 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinestyle{mystyle}{
-	backgroundcolor=\color{backcolour},   
+	backgroundcolor=\color{backcolour},
 	commentstyle=\color{codegreen},
 	keywordstyle=\color{magenta},
 	numberstyle=\tiny\color{codegray},
 	stringstyle=\color{codepurple},
 	basicstyle=\footnotesize,
-	breakatwhitespace=false,         
-	breaklines=true,                 
-	captionpos=b,                    
-	keepspaces=true,                 
-	numbers=left,                    
-	numbersep=5pt,                  
-	showspaces=false,                
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
 	showstringspaces=false,
-	showtabs=false,                  
+	showtabs=false,
 	tabsize=2
 }
 \lstset{style=mystyle}
@@ -84,8 +84,8 @@
 
 
 \section{Introducción}
-\hspace{0.5cm}Se debe desarrollar un software que permita alquilar (total o parcialmente) y compartir coches y/o viviendas. 
-La idea principal es crear un sistema de economía colaborativa en el que los usuarios sean a la vez quienes prestan y quienes reciben un servicio. 
+\hspace{0.5cm}Se debe desarrollar un software que permita alquilar (total o parcialmente) y compartir coches y/o viviendas.
+La idea principal es crear un sistema de economía colaborativa en el que los usuarios sean a la vez quienes prestan y quienes reciben un servicio.
 Una vez registrado un usuario podrá publicar y consultar anuncios, e interactuar con otros usuarios.
 
 \hspace{0.5cm}Los usuarios podrán dejar opiniones sobre los servicios recibidos y se establecerá un estándar de calidad que permitirá, antes de solicitar un servicio, tener una idea de la relación calidad/precio del mismo.
@@ -93,7 +93,7 @@ Una vez registrado un usuario podrá publicar y consultar anuncios, e interactua
 \hspace{0.5cm}El sistema mantendrá la consistencia de dichos servicios, de forma que en todo momento sepamos las operaciones que se están llevando a cabo.
 Dispondrá de un sistema de control ante errores para no lastrar la experiencia del usuario, además, el historial de operaciones del sistema nos permitirá mejorar la calidad de los servicios que en él se ofrecen usando un modelo que cambiará dinámicamente.
 
-\hspace{0.5cm}En lo referente al dominio del problema hay características comunes a ambos tipos de alquileres, como las modalidades de pago, las opiniones, el precio, disponibilidad de plazas o habitaciones.
+\hspace{0.5cm}En lo referente al dominio del problema hay características comunes a ambos tipos de es, como las modalidades de pago, las opiniones, el precio, disponibilidad de plazas o habitaciones.
 En el caso de alquiler de vehículos incluiría los puntos de recogida y destino, las fechas, número de plazas, si el usuario es el conductor o no.
 Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tipo de alquiler, tipo de vivienda, datos adicionales como el Wi-Fi, luz o agua (en caso de estar o no incluidas en el precio), etc.
 
@@ -101,7 +101,7 @@ Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tip
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[H]
 	\centering
 	\label{my-label}
 	\resizebox{\textwidth}{!}{%
@@ -125,145 +125,148 @@ Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tip
 \subsection{Requisitos de información}
 \begin{itemize}
 	\item \textbf{RI-1} Usuarios
-	
+
 	Información sobre los usuarios del sistema.
-	
+
 	Identificador de usuario, DNI, calificación (derivada de otros usuarios), descripción (opcional), teléfono, e-mail (opcional), status, mensajes, cuenta bancaria (opcional), foto (opcional), fecha de alta como usuario, saldo virtual actual, alquileres vigentes y pasados, opiniones dejadas y recibidas.
-	
+
 	\item \textbf{RI-2} Vehículos
-	
+
 	Vehículos que han pasado alguna vez por nuestro sistema.
-	
+
 	Identificador del vehículo, matrícula, calificación, modelo, color, número de asientos (contando el conductor).
 	También se incluye si se permiten mascotas, fumar, etc.
-	
+
 	\item \textbf{RI-3} Viviendas
-	
+
 	Viviendas que han pasado alguna vez por nuestro sistema.
-	
+
 	Identificador de la vivienda, identificador del dueño, calificación (derivada de otros usuarios), ubicación, inclusión de mobiliario, metros cuadrados, número de habitaciones, número de baños, tasas incluidas, datos adicionales (fotos, información sobre calefacción, garaje, ascensor, piscina, terraza, etc.).
 	También se incluye si hay fianza.
-	
+
 	\item \textbf{RI-4} Historial
-	
-	Historial de alquileres de cada usuario del sistema.
-	
+
+	Historial de anuncios de cada usuario del sistema.
+
 	Identificador de usuario, lista de alquileres (identificadores)
-	% Pagos que tiene pendientes	
-		
+	% Pagos que tiene pendientes
+
 	\item \textbf{RI-5} Vehículos para alquilar
-	
+
 	Descripción de los vehículos disponibles para que otros usuarios los alquilen.
-	
+
 	Identificador del alquiler, identificador del dueño, identificador del vehículo, tipo de alquiler (total o parcial), datos adicionales.
 	\begin{itemize}
 		\item \textbf{RI-5.1} Alquiler total
-		
+
 		Alquiler del vehículo completo por un periodo de tiempo.
-		
-		Fianza, fechas de inicio y fin del alquiler, precio, lugar de recogida y devolución del vehículo, posibilidad de alquileres intermedios.
-		
+
+		Fianza, fechas de inicio y fin del alquiler, precio, lugar de recogida y devolución del vehículo, posibilidad de hacer subtrayectos.
+
 		\item \textbf{RI-5.2} Alquiler plazas para viaje
-		
+
 		En este caso se alquilarían plazas sueltas para un viaje concreto.
-		
+
 		Fecha de inicio del viaje, fecha estimada de llegada (derivado del resto), lugar inicial y final del viaje, posibles paradas intermedias (para recoger otros pasajeros), número de plazas ofertadas y disponibles, precio por plaza, tamaño máximo del equipaje (pequeño, mediano o grande) y usuarios que ya han reservado alguna plaza en subtrayectos.
 	\end{itemize}
 
 	\item \textbf{RI-6} Viviendas para alquilar
-	
+
 	Viviendas actualmente disponibles para alquiler total o parcial.
-	
-	Identificador de alquiler, identificador de la vivienda, tipo de alquiler (total o por habitaciones). 
-		
+
+	Identificador del anuncio, identificador de la vivienda, tipo de alquiler (total o por habitaciones).
+
 	\begin{itemize}
 		\item \textbf{RI-6.1} Alquiler total
-		
+
 		Alquiler de la vivienda completa por un periodo de tiempo
-		
-		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado, posibilidad de alquileres intermedios.
-		
+
+		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado.
+
 		\item \textbf{RI-6.2} Alquiler por habitaciones
-		
+
 		Alquiler de habitaciones sueltas.
-		
-		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado, posibilidad de alquileres intermedios, número de habitaciones para alquilar.
+
+		Fecha inicio del alquiler, fecha fin del alquiler, precio por día alquilado, número de habitaciones para alquilar.
 	\end{itemize}
 
 	\item \textbf{RI-7} Normas
 	\item \textbf{RI-8} Proveedores de seguros
-	\item \textbf{RI-9} Contacto con la empresa	
+	\item \textbf{RI-9} Contacto con la empresa
 \end{itemize}
 
 \subsection{Requisitos funcionales}
 \begin{itemize}
 	\item \textbf{RF-1} Gestión de usuarios
 	\begin{itemize}
-		\item \textbf{RF-1.1} Alta de usuario
-		\item \textbf{RF-1.2} Consulta de usuario
+		\item \textbf{RF-1.1} Alta de usuario: Creación de usuarios nuevos en nuestra base de datos.
+
+		\item \textbf{RF-1.2} Consulta de usuario: Ver las características del usuario.
 		\begin{itemize}
-			\item \textbf{RF-1.2.1} Datos personales
-			\item \textbf{RF-1.2.2} Opiniones recibidas
-			\item \textbf{RF-1.2.3} Alquileres efectuados
+			\item \textbf{RF-1.2.1} Datos personales: Información básica de contacto e identificación del usuario.
+			\item \textbf{RF-1.2.2} Opiniones recibidas: Grado de satisfacción que tienen el resto de usuarios que han recibido servicios del mismo.
+			\item \textbf{RF-1.2.3} Alquileres efectuados: Anuncios ofertados en la plataforma y que han sido contratados por algún usuario.
 		\end{itemize}
 		\item \textbf{RF-1.3} Modificar usuario
 		\begin{itemize}
-			\item \textbf{RF-1.3.1} Modificar datos personales
+			\item \textbf{RF-1.3.1} Modificar datos personales: Modificar información básica de contacto e identificación del usuario.
 			\begin{itemize}
-				\item \textbf{RF-1.3.1.1} Verificar e-mail
-				\item \textbf{RF-1.3.1.2} Verificar teléfono
+				\item \textbf{RF-1.3.1.1} Verificar e-mail: Comprobación de haber recibido el e-mail de verificación.
+				\item \textbf{RF-1.3.1.2} Verificar teléfono: Comprobación del teléfono mediante un mensaje de texto.
 			\end{itemize}
-			\item \textbf{RF-1.3.2} Añadir vehículo
-			\item \textbf{RF-1.3.3} Añadir vivienda
-			\item \textbf{RF-1.3.4} Modificar status
-			\item \textbf{RF-1.3.5} Añadir alquiler efectuado
+			\item \textbf{RF-1.3.2} Añadir vehículo: Añadir vehículo a la lista de vehículos del usuario disponibles para alquilar.
+			\item \textbf{RF-1.3.3} Añadir vivienda: Añadir vivienda a la lista de viviendas del usuario disponibles para alquilar.
+			\item \textbf{RF-1.3.4} Modificar status: Modificar rango dentro de la plataforma en función de la experiencia del usuario y de las opiniones recibidas.
+			\item \textbf{RF-1.3.5} Añadir alquiler efectuado: Guardar en la base de datos los datos referentes a dicho alquiler, eliminándolo de la lista de anuncios disponibles.
 		\end{itemize}
 		\item \textbf{RF-1.4} Gestión de pagos
 		\begin{itemize}
-			\item \textbf{RF-1.4.1} Consultar saldo
-			\item \textbf{RF-1.4.2} Modificar saldo
-			\item \textbf{RF-1.4.3} Pago a cuenta
+			\item \textbf{RF-1.4.1} Consultar saldo: Ver el saldo virtual que tenemos dentro de la plataforma.
+			\item \textbf{RF-1.4.2} Modificar saldo: Modificar el saldo indicado, se controla a base de privilegios, solamente puede ser modificado por administradores y por la realización de un alquiler.
+			\item \textbf{RF-1.4.3} Pago a cuenta: Transferir el dinero virtual a una cuenta bancaria asociada al usuario.
 		\end{itemize}
-		\item \textbf{RF-1.5} Denunciar usuario
+		\item \textbf{RF-1.5} Denunciar usuario: Advertir incidencia dentro de un alquiler. Dicha incidencia puede deberse al incumplimiento de la normativa o un mal uso del servicio.
 		\item \textbf{RF-1.6} Eliminar usuario
 	\end{itemize}
-	
-	\item \textbf{RF-2} Gestión de alquileres
+
+	\item \textbf{RF-2} Gestión de anuncios
 	\begin{itemize}
-		\item \textbf{RF-2.1} Añadir alquiler
+		\item \textbf{RF-2.1} Añadir anuncio: Añadir alquileres a la lista de alquileres disponibles.
 		\begin{itemize}
-			\item \textbf{RF-2.1.1} Elegir vivienda
+			\item \textbf{RF-2.1.1} Seleccionar vivienda: Selección, dentro de las viviendas disponibles para el usuario, de la vivienda que se desea poner en alquiler.
 			\begin{itemize}
-				\item \textbf{RF-2.1.1.1} Elegir habitación
+				\item \textbf{RF-2.1.1.1} Seleccionar habitación;  Selección de la habitación (dentro de una vivienda seleccionada para alquilar) que se desea poner en alquiler.
 			\end{itemize}
-			\item \textbf{RF-2.1.2} Elegir vehículo
+			\item \textbf{RF-2.1.2} Seleccionar vehículo: Selección, dentro de los vehículos disponibles para el usuario, aquel que se desea poner en alquiler.
+			\begin{itemize}
+				\item \textbf{RF-2.1.2.1} Establecer número de plazas para compartir dentro de un trayecto.
+			\end{itemize}
 		\end{itemize}
-		\item \textbf{RF-2.2} Consultar alquiler
-		\item \textbf{RF-2.3} Modificar alquiler
+		\item \textbf{RF-2.2} Consultar anuncio: Consulta de los detalles de un anuncio de alquiler.
+		\item \textbf{RF-2.3} Modificar anuncio
 		\begin{itemize}
-			\item \textbf{RF-2.3.1} Modificar información alquiler
-			\item \textbf{RF-2.3.2} Solicitar aceptación de alquiler (total o parcial)
-			\item \textbf{RF-2.3.3} Confirmar realización de alquiler
+			\item \textbf{RF-2.3.1} Modificar información anuncio:  Alteración de algún detalle del anuncio publicado.
+			\item \textbf{RF-2.3.2} Confirmar alquiler: Aceptación, por parte del dueño del anuncio, de la reserva efectuada por el usuario que desea el servicio.
+			\item \textbf{RF-2.3.3} Denegar alquiler: Rechazar la solicitud efectuada por parte del usuario que desea el servicio.
 		\end{itemize}
 		\item \textbf{RF-2.4} Gestión de mensajes
 		\begin{itemize}
-			\item \textbf{RF-2.4.1} Enviar mensaje
-			\item \textbf{RF-2.4.2} Validar mensaje
+			\item \textbf{RF-2.4.1} Enviar mensaje: Publicar, en el tablón del anuncio, un mensaje para pedir información extra.
+			\item \textbf{RF-2.4.2} Validar mensaje: Comprobar, por parte de los administradores del software, que el contenido del mensaje cumple con la normativa.
 		\end{itemize}
-		\item \textbf{RF-2.5} Dejar una calificación
-		\item \textbf{RF-2.6} Gestión de incidencias
+		\item \textbf{RF-2.5} Dejar una calificación: Valorar el servicio recibido.
+		\item \textbf{RF-2.6} Gestión de incidencias: 
 		\begin{itemize}
-			\item \textbf{RF-2.6.1} Notificar una incidencia 
-			\item \textbf{RF-2.6.2} Consultar incidencias
+			\item \textbf{RF-2.6.1} Notificar una incidencia: Avisar del incumplimiento de la normativa por parte de algún usuario.
+			\item \textbf{RF-2.6.2} Consultar incidencias por parte del administrador.
+			\item \textbf{RF-2.6.2} Resolución de incidencia: Resolución de alguna incidencia por parte del equipo administrador de la aplicación.	
 		\end{itemize}
 		\item \textbf{RF-2.7} Retirar alquiler de lista de ofertados
-	\end{itemize}	
+	\end{itemize}
 
 	\item \textbf{RF-3} Gestión de administradores
 	\begin{itemize}
-		\item \textbf{RF-3.1} Consulta de incidencias
-		\item \textbf{RF-3.2} Resolución de incidencias
-		\item \textbf{RF-3.3} Gestión de privilegios
+		\item \textbf{RF-3.1} Gestión de privilegios: Asignar o retirar privilegios a los usuarios.
 	\end{itemize}
 \end{itemize}
 
@@ -276,15 +279,11 @@ Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tip
 
 \section{Glosario de términos}
 \begin{itemize}
-	\item Alquiler intermedio: Alquiler que pueda empezar y/o terminar en otro momento distinto del especificado en el rango inicial
-	\item Calificación: Puntuación numérica entre $0$ y $5$ (incluidos), donde $0$ es la menor nota y $5$ la mayor.
-	\item Economía colaborativa
-	\item Historial: Lista de alquileres relativos a un usuario concreto (siendo dicho usuario el proveedor o el consumidor, indistintamente)
-	\item Incidencia (retraso, información falsa, comportamiento inadecuado, etc.)
+	\item Calificación: Puntuación numérica entre $0$ y $5$ (incluidos), donde $0$ es la menor calificación y $5$ la mayor.
+	\item Economía colaborativa: Interacción entre dos o más sujetos, a través de medios digitalizados o no, que satisface una necesidad real o potencial, a una o más personas.	
+	\item Saldo virtual: Dinero ficticio asociado a cada usuario que puede obtener al beneficiarse de alquileres (también podemos canjearlo por alquileres) y puede transferirse a una cuenta bancaria.
 	\item Subtrayecto: Trayecto parcial del viaje, que empieza y/o acaba en paradas intermedias.
-	\item Status: Nivel de experiencia de un usuario
-	\item Ubicación: Coordenadas del sitio al que estamos referenciando.
-	\item Verificar: Comprobar que el recurso pertenece al usuario indicado	
+	\item Status: Nivel del usuario dentro de la plataforma, que se modifica en función de la experiencia y las opiniones recibidas de otros usuarios.
 \end{itemize}
 
 
@@ -296,15 +295,15 @@ Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tip
 
 % Para hacer citas: \cite{<referencia>}
 % donde <referencia> es lo primero que aparece en el fichero .bib:
-% @tipo{<referencia>, ...} 
+% @tipo{<referencia>, ...}
 
 % Si no se utiliza una cita hay que especificarlo con \nocite{<referencia>}
 
 
 % El orden de referencias es determinado por el orden de aparición de \cite y \nocite
-\bibliographystyle{unsrt}  
+\bibliographystyle{unsrt}
 
-\bibliography{./Bibliografia/preambulo,./Bibliografia/referencias}  
+\bibliography{./Bibliografia/preambulo,./Bibliografia/referencias}
 
 
 \end{document}
