@@ -66,18 +66,8 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 
-\usepackage{array} % for defining a new column type
-\usepackage{varwidth} %for the varwidth minipage environment
-\newcolumntype{M}{>{\begin{varwidth}{4cm}}l<{\end{varwidth}}} %M is for Maximal column
-
 \linespread{1.1}                  % Espacio entre líneas.
 \setlength\parindent{0pt}         % Indentación para párrafo.
-
-\title{Fundamentos de la Ingeniería del Software \\ Prácticas}
-\author{Alicia Rodríguez Gómez \\ Francisco Javier Morales Piqueras\\ Rubén Morales Pérez\\ Samia Mikou}
-\date{ }
-
-
 
 
 
@@ -86,12 +76,23 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \begin{document}
 
+\title{Fundamentos de la Ingeniería del Software \\ Práctica 1: Lista inicial de requisitos}
+\author{
+	\begin{tabular}{rl} 	
+		Alicia Rodríguez Gómez \\
+		Francisco Javier Morales Piqueras\\ 
+		Rubén Morales Pérez\\ 
+		Samia Mikou \\ 
+	\end{tabular}
+}
+\date{ }
+
 \maketitle
 \tableofcontents % Generando el indice
 \newpage
 \setlength\parindent{0pt} % Quitamos la sangría
 
-
+  
 \section{Introducción}
 \hspace{0.5cm}Este software permitirá alquilar (total o parcialmente) y compartir coches y/o viviendas.
 La idea principal es crear un sistema de economía colaborativa en el que los usuarios (previo registro) sean a la vez quienes prestan y quienes reciben un servicio.
