@@ -22,6 +22,12 @@
 \usepackage{xparse} % Entornos
 \usepackage{listings}
 
+
+
+
+
+
+
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -60,6 +66,9 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 
+\usepackage{array} % for defining a new column type
+\usepackage{varwidth} %for the varwidth minipage environment
+\newcolumntype{M}{>{\begin{varwidth}{4cm}}l<{\end{varwidth}}} %M is for Maximal column
 
 \linespread{1.1}                  % Espacio entre líneas.
 \setlength\parindent{0pt}         % Indentación para párrafo.
@@ -84,38 +93,40 @@
 
 
 \section{Introducción}
-\hspace{0.5cm}Se debe desarrollar un software que permita alquilar (total o parcialmente) y compartir coches y/o viviendas.
-La idea principal es crear un sistema de economía colaborativa en el que los usuarios sean a la vez quienes prestan y quienes reciben un servicio.
-Una vez registrado un usuario podrá publicar y consultar anuncios, e interactuar con otros usuarios.
-
-\hspace{0.5cm}Los usuarios podrán dejar opiniones sobre los servicios recibidos y se establecerá un estándar de calidad que permitirá, antes de solicitar un servicio, tener una idea de la relación calidad/precio del mismo.
+\hspace{0.5cm}Este software permitirá alquilar (total o parcialmente) y compartir coches y/o viviendas.
+La idea principal es crear un sistema de economía colaborativa en el que los usuarios (previo registro) sean a la vez quienes prestan y quienes reciben un servicio.
+Los usuarios podrán dejar opiniones sobre los servicios recibidos y se establecerá un estándar de calidad que permitirá tener una idea de la relación calidad/precio del mismo.
 
 \hspace{0.5cm}El sistema mantendrá la consistencia de dichos servicios, de forma que en todo momento sepamos las operaciones que se están llevando a cabo.
 Dispondrá de un sistema de control ante errores para no lastrar la experiencia del usuario, además, el historial de operaciones del sistema nos permitirá mejorar la calidad de los servicios que en él se ofrecen usando un modelo que cambiará dinámicamente.
 
-\hspace{0.5cm}En lo referente al dominio del problema hay características comunes a ambos tipos de es, como las modalidades de pago, las opiniones, el precio, disponibilidad de plazas o habitaciones.
+\hspace{0.5cm}En lo referente al dominio del problema hay características como las modalidades de pago, las opiniones, el precio, disponibilidad de plazas o habitaciones.
 En el caso de alquiler de vehículos incluiría los puntos de recogida y destino, las fechas, número de plazas, si el usuario es el conductor o no.
-Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tipo de alquiler, tipo de vivienda, datos adicionales como el Wi-Fi, luz o agua (en caso de estar o no incluidas en el precio), etc.
+Para la vivienda el dominio incluiría los periodos de alquiler, dirección, tipo de vivienda, datos adicionales como el Wi-Fi, luz o agua (en caso de estar o no incluidas en el precio), etc.
 
 \section{Implicados}
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
 \begin{table}[H]
 	\centering
-	\label{my-label}
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{llll}
-			Nombre & Descripción & Responsabilidad & Criterios de éxito \\
-			Administrador & Entidad que administra el software & Gestiona el buen uso de la aplicación y resuelve conflictos & Resolver efectivamente los conflictos y garantiza el buen funcionamiento del software. \\
-			Arrendador & Entidad que posee la vivienda o vehículo a arrendar. & Publicar el anuncio de alquiler y la información de contacto. Cumplir los términos del contrato. & Ofrecer información veraz y completa, conseguir alquilar la vivienda o vehículo. \\
-			Arrendatario & Entidad que paga al arrendador por el uso su vivienda o vehículo. & Hacer un uso responsable de la vivienda o vehículo. Cumplir con los términos del contrato. & Conseguir una vivienda o vehículo de alquiler y no dar problemas al arrendador. \\
-			Conductor & Entidad que conduce el coche durante el trayecto contratado. & Cumplir con la normativa de tráfico, cumplir el horario previsto. & Conseguir pasajeros para su trayecto. \\
-			Pasajero & Entidad que comparte el trayecto con el conductor. & Llegar a tiempo a la cita, respetar el vehículo y confirmar que ha realizado dicho trayecto. & Conseguir el trayecto deseado a buen precio. \\
-			Vehículo & Vehículo ofertado para su uso en un periodo de tiempo o en un trayecto & No tiene responsabilidad. & No averiarse. \\
-			Vivienda & Vivienda ofertada para su uso en un periodo de tiempo o para alquilar habitaciones. & No tiene responsabilidad. & Ser habitable.
+		\begin{tabular}{|p{0.9in}|p{1.5in}|p{2in}|p{2in}|}
+			\hline
+			Nombre & Descripción & Responsabilidad & Criterios de éxito \\ \hline
+			
+			Administrador & Entidad que administra el software & Gestiona el buen uso de la aplicación y resuelve conflictos & Resolver efectivamente los conflictos y garantiza el buen funcionamiento del software. \\ \hline
+			
+			Arrendador & Entidad que posee la vivienda o vehículo a arrendar. & Publicar el anuncio y la información de contacto. Cumplir los términos del contrato. & Ofrecer información veraz y completa, conseguir alquilar la vivienda o vehículo. \\ \hline
+			
+			Arrendatario & Entidad que paga al arrendador por el uso su vivienda o vehículo. & Hacer un uso responsable de la vivienda o vehículo. Cumplir con los términos del contrato. & Conseguir una vivienda o vehículo de alquiler y no dar problemas al arrendador. \\ \hline
+			
+			Conductor & Entidad que conduce el coche durante el trayecto contratado. & Cumplir con la normativa de tráfico, cumplir el horario previsto. & Conseguir pasajeros para su trayecto. \\ \hline
+			
+			Pasajero & Entidad que comparte el trayecto con el conductor. & Llegar a tiempo a la cita, respetar el vehículo y confirmar la realización del trayecto. & Conseguir el trayecto deseado a buen precio. \\ \hline
+			
+			Vehículo & Vehículo ofertado para su uso un periodo de tiempo o un trayecto & No tiene responsabilidad. & No averiarse. \\ \hline
+			
+			Vivienda & Vivienda ofertada para su uso en un periodo de tiempo o para alquilar habitaciones. & No tiene responsabilidad. & Ser habitable.\\ \hline
 		\end{tabular}%
-	}
+
 \end{table}
 
 
