@@ -1,6 +1,0 @@
-solicitarRegistro
-solicitarBajaRegistro
-modificarPerfil
-OfrecerPlanViaje: modificar visibilidad
-SeleccionarFormaPago: se realiza el cobro y se devuelve 'Denegado' si no tiene éxito
-responderPeticion:Aceptar o rechazar acompañante
